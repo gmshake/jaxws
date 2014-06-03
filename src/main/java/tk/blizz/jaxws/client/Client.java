@@ -5,7 +5,7 @@ import javax.xml.ws.Service;
 import javax.xml.ws.soap.SOAPBinding;
 
 import tk.blizz.jaxws.HelloWorld;
-
+import tk.blizz.jaxws.User;
 
 public class Client {
 	private static final QName SERVICE_NAME = new QName("http://jaxws.blizz.tk/", "HelloWorld");
@@ -27,12 +27,11 @@ public class Client {
 		System.out.println(hw.sayHello("Text1"));
 
 		System.out.println(hw.sayWorld("Text2"));
-		/*
+
 		System.out.println(hw.getUserByName("User1"));
 
 		for (User u : hw.getUsers()) {
 			System.out.println(u);
 		}
-		 */
 	}
 }
