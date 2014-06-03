@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 @WebService(endpointInterface = "tk.blizz.jaxws.HelloWorld", serviceName = "HelloWorld")
 public class HelloWorldImpl implements HelloWorld {
 
-	private List<User> users = new ArrayList<User>();
+	private final List<User> users = new ArrayList<User>();
 
 	{
 		this.users.add(new UserImpl("User1", new Date()));
@@ -45,13 +45,12 @@ public class HelloWorldImpl implements HelloWorld {
 		return null;
 	}
 
-	@XmlElementWrapper(name="users")
-	@XmlElement(name="user")
+	@XmlElementWrapper(name = "users")
+	@XmlElement(name = "user")
 	@Override
-	public List<User> getUsers() {
+	public User[] getUsers() {
 		System.out.println("getUsers called");
-		if (this.users != null)
-			throw new NullPointerException();
-		return this.users;
+		return this.users.toArray(new User[this.users.size()]);
 	}
+
 }

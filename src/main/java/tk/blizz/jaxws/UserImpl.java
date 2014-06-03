@@ -1,13 +1,17 @@
 package tk.blizz.jaxws;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlType(name = "User")
-public class UserImpl implements User {
+public class UserImpl implements User, Serializable {
+	@XmlAttribute
 	private String name;
+	@XmlAttribute
 	private Date birthday;
 
 	public UserImpl() {
