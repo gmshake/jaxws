@@ -8,8 +8,10 @@ public class UserAdapter extends XmlAdapter<UserImpl, User> {
 	public UserImpl marshal(User v) throws Exception {
 		if (v instanceof UserImpl)
 			return (UserImpl)v;
-		else
+		else if (v != null)
 			return new UserImpl(v);
+		else
+			return null;
 	}
 
 	@Override

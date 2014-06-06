@@ -22,16 +22,17 @@ public class Client {
 
 		HelloWorld hw = service.getPort(HelloWorld.class);
 
-		System.out.println(hw.hello());
+		//System.out.println(hw.hello());
 
-		System.out.println(hw.sayHello("Text1"));
+		//System.out.println(hw.sayHello("Text1"));
 
-		System.out.println(hw.sayWorld("Text2"));
+		//System.out.println(hw.sayWorld("Text2"));
 
-		System.out.println(hw.getUserByName("User1"));
+		//System.out.println(hw.getUserByName("User2"));
 
 		for (User u : hw.getUsers()) {
 			System.out.println(u);
 		}
+
 	}
 }

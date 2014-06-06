@@ -14,8 +14,12 @@ public class HelloWorldImpl implements HelloWorld {
 	private final List<User> users = new ArrayList<User>();
 
 	{
-		this.users.add(new UserImpl("User1", new Date()));
-		this.users.add(new UserImpl("User2", new Date()));
+		UserImpl user1 = new UserImpl(1, "User1", new Date(), null);
+		UserImpl user2 = new UserImpl(2, "User2", new Date(), null);
+		user2.setNext(user1);
+		user1.setNext(user2);
+		this.users.add(user1);
+		this.users.add(user2);
 	}
 
 	@Override
@@ -38,6 +42,7 @@ public class HelloWorldImpl implements HelloWorld {
 
 	@Override
 	public User getUserByName(String name) {
+		System.out.println("getUserByName called: name -> " + name);
 		for (User u : this.users) {
 			if (u.getName().equals(name))
 				return u;
